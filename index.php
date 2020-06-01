@@ -2,10 +2,6 @@
 
 const ROOT_DIR = __DIR__;
 
-const OPTIONS_PATH = ROOT_DIR . '/options.json';
-$options = jsonDecode(file_get_contents(OPTIONS_PATH));
-define('TIMEZONE', $options['timezone']);
-
 require ROOT_DIR . '/setup.php';
 
 require ROOT_DIR . '/classes/CurlResponse.php';
@@ -16,6 +12,10 @@ require ROOT_DIR . '/classes/App.php';
 const MAP_PATH = ROOT_DIR . '/formats.txt';
 const LAST_ID_PATH = ROOT_DIR . '/last_id.txt';
 const COUNTER_PATH = ROOT_DIR . '/counter.txt';
+const OPTIONS_PATH = ROOT_DIR . '/options.json';
+
+$options = jsonDecode(file_get_contents(OPTIONS_PATH));
+date_default_timezone_set($options['timezone']);
 
 $opts = ['allowed_classes' => false];
 

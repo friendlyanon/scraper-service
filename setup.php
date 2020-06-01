@@ -4,8 +4,6 @@ set_error_handler(static function ($severity, $message, $file, $line) {
     throw new ErrorException($message, 0, $severity, $file, $line);
 });
 
-date_default_timezone_set(TIMEZONE);
-
 ob_start(static function ($buffer) {
     static $file;
     if ($file === null) {
