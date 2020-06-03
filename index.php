@@ -1,6 +1,7 @@
 <?php
 
 const ROOT_DIR = __DIR__;
+const OPTIONS_PATH = ROOT_DIR . '/options.php';
 
 require ROOT_DIR . '/setup.php';
 
@@ -12,10 +13,8 @@ require ROOT_DIR . '/classes/App.php';
 const MAP_PATH = ROOT_DIR . '/formats.txt';
 const LAST_ID_PATH = ROOT_DIR . '/last_id.txt';
 const COUNTER_PATH = ROOT_DIR . '/counter.txt';
-const OPTIONS_PATH = ROOT_DIR . '/options.json';
 
-$options = jsonDecode(file_get_contents(OPTIONS_PATH));
-date_default_timezone_set($options['timezone']);
+$options = require OPTIONS_PATH;
 
 $opts = ['allowed_classes' => false];
 

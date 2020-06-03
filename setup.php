@@ -12,6 +12,8 @@ ob_start(static function ($buffer) {
     fwrite($file, $buffer);
 }, 1);
 
+date_default_timezone_set((require OPTIONS_PATH)['timezone']);
+
 /** @see json_decode */
 function jsonDecode($json, $options = 0, $assoc = true, $depth = 512)
 {
