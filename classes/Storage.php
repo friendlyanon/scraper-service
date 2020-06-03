@@ -9,7 +9,7 @@ class Storage
 
     protected string $gitTarget;
 
-    public __construct(string $gitTarget)
+    public function __construct(string $gitTarget)
     {
         $this->gitTarget = $gitTarget;
     }
